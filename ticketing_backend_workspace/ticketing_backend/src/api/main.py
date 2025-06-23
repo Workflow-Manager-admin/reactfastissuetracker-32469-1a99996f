@@ -1,10 +1,21 @@
-from fastapi import FastAPI, HTTPException, Path, Body, status
+from fastapi import FastAPI, HTTPException, Path, Body, status, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
-from typing import List, Optional, Dict
+from typing import List, Optional
 from enum import Enum
 from uuid import uuid4
 from datetime import datetime
+
+from sqlalchemy import (
+    create_engine,
+    Column,
+    String,
+    Enum as SAEnum,
+    DateTime,
+    Text,
+)
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker, Session, scoped_session
 
 
 # --- Ticket data model definitions ---
@@ -16,11 +27,50 @@ class TicketStatus(str, Enum):
     closed = "closed"
 
 
+# SQLAlchemy setup (SQLite DB)
+DATABASE_URL = "sqlite:///./tickets.db"
+
+Base = declarative_base()
+
+
+class TicketORM(Base):
+    __tablename__ = "tickets"
+    id = Column(String, primary_key=True, index=True)
+    title = Column(String, nullable=False)
+    description = Column(Text, nullable=False)
+    status = Column(SAEnum(TicketStatus), nullable=False, default=TicketStatus.open)
+    created_at = Column(DateTime, nullable=False)
+    updated_at = Column(DateTime, nullable=False)
+    response = Column(Text, nullable=True)
+
+
+# DB engine + session
+engine = create_engine(
+    DATABASE_URL, connect_args={"check_same_thread": False}
+)
+SessionLocal = scoped_session(sessionmaker(autocommit=False, autoflush=False, bind=engine))
+
+
+def create_db_and_tables():
+    """Create tables if they do not exist (automatic migration for this use-case)."""
+    Base.metadata.create_all(bind=engine)
+
+
+# Dependency for getting DB session
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+
 # PUBLIC_INTERFACE
 class Ticket(BaseModel):
     """
     Represents a support ticket.
     """
+
     id: str = Field(
         ...,
         description="Unique ticket identifier"
@@ -50,12 +100,25 @@ class Ticket(BaseModel):
         description="Optional admin/internal response to the ticket"
     )
 
+    @staticmethod
+    def from_orm_obj(obj: 'TicketORM'):
+        return Ticket(
+            id=obj.id,
+            title=obj.title,
+            description=obj.description,
+            status=obj.status,
+            created_at=obj.created_at,
+            updated_at=obj.updated_at,
+            response=obj.response
+        )
+
 
 # PUBLIC_INTERFACE
 class NewTicketRequest(BaseModel):
     """
     Payload for submitting a new ticket.
     """
+
     title: str = Field(
         ...,
         description="Short title describing the issue"
@@ -71,6 +134,7 @@ class TicketStatusUpdateRequest(BaseModel):
     """
     Payload for updating a ticket's status.
     """
+
     status: TicketStatus = Field(
         ...,
         description="New status for the ticket"
@@ -89,18 +153,15 @@ class TicketListResponse(BaseModel):
     )
 
 
-# ----------------- In-memory store -----------------
-tickets_db: Dict[str, Ticket] = {}
-
-
 # ----------------- FastAPI App Setup -----------------
+
 app = FastAPI(
     title="Anonymous Ticketing System Backend",
     version="1.0.0",
     description=(
         "RESTful backend for anonymous ticket submission, listing, status "
         "management, and admin overview.\n"
-        "No authentication required. Data is not persistent (in-memory only).\n"
+        "No authentication required. Data is persistent (SQLite via SQLAlchemy).\n"
     ),
     openapi_tags=[
         {
@@ -116,7 +177,6 @@ app = FastAPI(
     ],
 )
 
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -124,6 +184,12 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+# Run the function at startup
+@app.on_event("startup")
+def on_startup():
+    create_db_and_tables()
 
 
 # ----------- Public Endpoints (No Auth) -----------
@@ -147,7 +213,7 @@ def health_check():
         "Returns created ticket details."
     ),
 )
-def submit_ticket(payload: NewTicketRequest):
+def submit_ticket(payload: NewTicketRequest, db: Session = Depends(get_db)):
     """
     Submit a new ticket.
 
@@ -158,7 +224,7 @@ def submit_ticket(payload: NewTicketRequest):
     """
     ticket_id = str(uuid4())
     now = datetime.utcnow()
-    ticket = Ticket(
+    ticket_obj = TicketORM(
         id=ticket_id,
         title=payload.title,
         description=payload.description,
@@ -167,8 +233,10 @@ def submit_ticket(payload: NewTicketRequest):
         updated_at=now,
         response=None,
     )
-    tickets_db[ticket_id] = ticket
-    return ticket
+    db.add(ticket_obj)
+    db.commit()
+    db.refresh(ticket_obj)
+    return Ticket.from_orm_obj(ticket_obj)
 
 
 # PUBLIC_INTERFACE
@@ -179,13 +247,14 @@ def submit_ticket(payload: NewTicketRequest):
     tags=["public"],
     description="Returns a list of all tickets (no authentication)."
 )
-def list_tickets():
+def list_tickets(db: Session = Depends(get_db)):
     """
     List all tickets.
 
     Returns a list of all tickets currently in the system.
     """
-    return TicketListResponse(tickets=list(tickets_db.values()))
+    q = db.query(TicketORM).order_by(TicketORM.created_at.desc()).all()
+    return TicketListResponse(tickets=[Ticket.from_orm_obj(x) for x in q])
 
 
 # PUBLIC_INTERFACE
@@ -196,14 +265,14 @@ def list_tickets():
     tags=["public"],
     description="Retrieve ticket details for a specific ticket ID."
 )
-def get_ticket(ticket_id: str = Path(..., description="Ticket ID")):
+def get_ticket(ticket_id: str = Path(..., description="Ticket ID"), db: Session = Depends(get_db)):
     """
     Get a single ticket by its ID.
     """
-    ticket = tickets_db.get(ticket_id)
+    ticket = db.query(TicketORM).filter(TicketORM.id == ticket_id).first()
     if not ticket:
         raise HTTPException(status_code=404, detail="Ticket not found")
-    return ticket
+    return Ticket.from_orm_obj(ticket)
 
 
 # ----------- Admin Functionality (No Auth) -----------
@@ -222,6 +291,7 @@ def get_ticket(ticket_id: str = Path(..., description="Ticket ID")):
 def update_ticket_status(
     ticket_id: str = Path(..., description="Ticket ID"),
     payload: TicketStatusUpdateRequest = Body(...),
+    db: Session = Depends(get_db),
 ):
     """
     Update ticket status and/or admin response.
@@ -231,15 +301,17 @@ def update_ticket_status(
 
     Returns the updated ticket object.
     """
-    ticket = tickets_db.get(ticket_id)
+    ticket = db.query(TicketORM).filter(TicketORM.id == ticket_id).first()
     if not ticket:
         raise HTTPException(status_code=404, detail="Ticket not found")
     ticket.status = payload.status
     ticket.updated_at = datetime.utcnow()
-    if payload.response:
+    if payload.response is not None:
         ticket.response = payload.response
-    tickets_db[ticket_id] = ticket
-    return ticket
+    db.add(ticket)
+    db.commit()
+    db.refresh(ticket)
+    return Ticket.from_orm_obj(ticket)
 
 
 # PUBLIC_INTERFACE
@@ -253,12 +325,12 @@ def update_ticket_status(
         "(no authentication required)."
     ),
 )
-def admin_dashboard():
+def admin_dashboard(db: Session = Depends(get_db)):
     """
     Admin dashboard listing all tickets.
     """
-    # Same as public listing but included here for future admin features/extensions.
-    return TicketListResponse(tickets=list(tickets_db.values()))
+    q = db.query(TicketORM).order_by(TicketORM.created_at.desc()).all()
+    return TicketListResponse(tickets=[Ticket.from_orm_obj(x) for x in q])
 
 
 # ---------------- OpenAPI Documentation Note (WebSocket info not required here) ----------------
