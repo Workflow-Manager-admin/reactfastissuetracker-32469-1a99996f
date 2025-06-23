@@ -23,3 +23,295 @@ modules by path ./.ve/ 15.1 KiB
     ./node_modules/css-loader/dist/cjs.js!./.ve/EditorOverlay.css 697 bytes [built] [code generated]
   ./.ve/EditorOverlay.jsx 1.58 KiB [built] [code generated]
 webpack 5.99.9 compiled successfully in 1341 ms
+assets by status 1.98 KiB [cached] 1 asset
+assets by path *.js 1.45 MiB
+  asset bundle.js 1.42 MiB [emitted] (name: main)
+  asset main.937b3b3c0d9fb67cad9a.hot-update.js 31.2 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.937b3b3c0d9fb67cad9a.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.45 MiB = bundle.js 1.42 MiB main.937b3b3c0d9fb67cad9a.hot-update.js 31.2 KiB
+cached modules 1.26 MiB [cached] 41 modules
+runtime modules 27.5 KiB 14 modules
+javascript modules 19.1 KiB
+  ./src/App.js 3.42 KiB [built] [code generated]
+  ./src/TicketForm.js 2.77 KiB [built] [code generated]
+  ./src/TicketList.js 3.58 KiB [built] [code generated]
+  ./src/AdminDashboard.js 7.39 KiB [built] [code generated]
+  ./src/api.js 1.95 KiB [built] [code generated]
+
+ERROR in ./src/api.js 1:0-26
+Module not found: Error: Can't resolve 'axios' in '/home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/src'
+resolve 'axios' in '/home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/src'
+  Parsed request is a module
+  using description file: /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/package.json (relative path: ./src)
+    Field 'browser' doesn't contain a valid alias configuration
+    resolve as module
+      /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/src/node_modules doesn't exist or is not a directory
+      looking for modules in /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules
+        single file module
+          using description file: /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/package.json (relative path: ./node_modules/axios)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios.jsx doesn't exist
+        /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios doesn't exist
+      /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/node_modules doesn't exist or is not a directory
+      /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/node_modules doesn't exist or is not a directory
+      /home/kavia/workspace/code-generation/node_modules doesn't exist or is not a directory
+      /home/kavia/workspace/node_modules doesn't exist or is not a directory
+      /home/kavia/node_modules doesn't exist or is not a directory
+      /home/node_modules doesn't exist or is not a directory
+      /node_modules doesn't exist or is not a directory
+ @ ./src/TicketList.js 2:0-50 18:23-35 32:23-34
+ @ ./src/App.js 4:0-38 78:34-44
+ @ ./src/index.js 5:0-24 11:32-35
+
+webpack 5.99.9 compiled with 1 error in 230 ms
+assets by status 1.98 KiB [cached] 1 asset
+assets by path *.js 1.42 MiB
+  asset bundle.js 1.42 MiB [emitted] (name: main)
+  asset main.5d180f63d9580b781c57.hot-update.js 4.7 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.5d180f63d9580b781c57.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.42 MiB = bundle.js 1.42 MiB main.5d180f63d9580b781c57.hot-update.js 4.7 KiB
+cached modules 1.28 MiB [cached] 45 modules
+runtime modules 27.5 KiB 14 modules
+./node_modules/css-loader/dist/cjs.js!./src/App.css 2.24 KiB [built] [code generated]
+
+ERROR in ./src/api.js 1:0-26
+Module not found: Error: Can't resolve 'axios' in '/home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/src'
+resolve 'axios' in '/home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/src'
+  Parsed request is a module
+  using description file: /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/package.json (relative path: ./src)
+    Field 'browser' doesn't contain a valid alias configuration
+    resolve as module
+      /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/src/node_modules doesn't exist or is not a directory
+      looking for modules in /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules
+        single file module
+          using description file: /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/package.json (relative path: ./node_modules/axios)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios.jsx doesn't exist
+        /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios doesn't exist
+      /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/node_modules doesn't exist or is not a directory
+      /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/node_modules doesn't exist or is not a directory
+      /home/kavia/workspace/code-generation/node_modules doesn't exist or is not a directory
+      /home/kavia/workspace/node_modules doesn't exist or is not a directory
+      /home/kavia/node_modules doesn't exist or is not a directory
+      /home/node_modules doesn't exist or is not a directory
+      /node_modules doesn't exist or is not a directory
+ @ ./src/TicketForm.js 2:0-37 29:12-24
+ @ ./src/App.js 3:0-38 75:41-51
+ @ ./src/index.js 5:0-24 11:32-35
+
+webpack 5.99.9 compiled with 1 error in 61 ms
+Injecting EditorRootWrapper import: ../.ve/EditorRootWrapper
+assets by path *.js 1.42 MiB
+  asset bundle.js 1.42 MiB [emitted] (name: main)
+  asset main.08085f5f09c99e32175c.hot-update.js 854 bytes [emitted] [immutable] [hmr] (name: main)
+asset index.html 1.98 KiB [emitted]
+asset main.08085f5f09c99e32175c.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.42 MiB = bundle.js 1.42 MiB main.08085f5f09c99e32175c.hot-update.js 854 bytes
+cached modules 1.25 MiB [cached] 37 modules
+runtime modules 27.5 KiB 14 modules
+javascript modules 31.8 KiB
+  modules by path ./src/*.js 19.6 KiB
+    ./src/index.js 530 bytes [built]
+    ./src/App.js 3.42 KiB [built]
+    ./src/TicketForm.js 2.77 KiB [built]
+    ./src/TicketList.js 3.58 KiB [built]
+    ./src/AdminDashboard.js 7.39 KiB [built]
+    ./src/api.js 1.95 KiB [built]
+  modules by path ./.ve/ 12.2 KiB
+    ./.ve/EditorRootWrapper.js 2.68 KiB [built]
+    ./.ve/EditorOverlay.jsx 1.58 KiB [built]
+    ./.ve/SidePanel.js 7.93 KiB [built]
+
+ERROR in ./src/api.js 1:0-26
+Module not found: Error: Can't resolve 'axios' in '/home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/src'
+resolve 'axios' in '/home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/src'
+  Parsed request is a module
+  using description file: /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/package.json (relative path: ./src)
+    Field 'browser' doesn't contain a valid alias configuration
+    resolve as module
+      /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/src/node_modules doesn't exist or is not a directory
+      looking for modules in /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules
+        single file module
+          using description file: /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/package.json (relative path: ./node_modules/axios)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios.jsx doesn't exist
+        /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios doesn't exist
+      /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/node_modules doesn't exist or is not a directory
+      /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/node_modules doesn't exist or is not a directory
+      /home/kavia/workspace/code-generation/node_modules doesn't exist or is not a directory
+      /home/kavia/workspace/node_modules doesn't exist or is not a directory
+      /home/kavia/node_modules doesn't exist or is not a directory
+      /home/node_modules doesn't exist or is not a directory
+      /node_modules doesn't exist or is not a directory
+ @ ./src/TicketForm.js 2:0-37 29:12-24
+ @ ./src/App.js 3:0-38 75:41-51
+ @ ./src/index.js 5:0-24 11:32-35
+
+webpack 5.99.9 compiled with 1 error in 242 ms
+assets by status 1.98 KiB [cached] 1 asset
+assets by path *.js 1.43 MiB
+  asset bundle.js 1.42 MiB [emitted] (name: main)
+  asset main.2d56ba9f3d34ac63b514.hot-update.js 9.76 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.2d56ba9f3d34ac63b514.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.43 MiB = bundle.js 1.42 MiB main.2d56ba9f3d34ac63b514.hot-update.js 9.76 KiB
+cached modules 1.28 MiB [cached] 45 modules
+runtime modules 27.5 KiB 14 modules
+./node_modules/css-loader/dist/cjs.js!./src/App.css 7.02 KiB [built] [code generated]
+
+ERROR in ./src/api.js 1:0-26
+Module not found: Error: Can't resolve 'axios' in '/home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/src'
+resolve 'axios' in '/home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/src'
+  Parsed request is a module
+  using description file: /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/package.json (relative path: ./src)
+    Field 'browser' doesn't contain a valid alias configuration
+    resolve as module
+      /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/src/node_modules doesn't exist or is not a directory
+      looking for modules in /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules
+        single file module
+          using description file: /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/package.json (relative path: ./node_modules/axios)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios doesn't exist
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios.jsx doesn't exist
+        /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios doesn't exist
+      /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/node_modules doesn't exist or is not a directory
+      /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/node_modules doesn't exist or is not a directory
+      /home/kavia/workspace/code-generation/node_modules doesn't exist or is not a directory
+      /home/kavia/workspace/node_modules doesn't exist or is not a directory
+      /home/kavia/node_modules doesn't exist or is not a directory
+      /home/node_modules doesn't exist or is not a directory
+      /node_modules doesn't exist or is not a directory
+ @ ./src/TicketForm.js 2:0-37 29:12-24
+ @ ./src/App.js 3:0-38 75:41-51
+ @ ./src/index.js 5:0-24 11:32-35
+
+webpack 5.99.9 compiled with 1 error in 76 ms
+assets by status 1.42 MiB [cached] 2 assets
+cached modules 1.29 MiB (javascript) 27.5 KiB (runtime) [cached] 60 modules
+
+ERROR in ./src/api.js 1:0-26
+Module not found: Error: Can't resolve 'axios' in '/home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/src'
+resolve 'axios' in '/home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/src'
+  Parsed request is a module
+  using description file: /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/package.json (relative path: ./src)
+    Field 'browser' doesn't contain a valid alias configuration
+    resolve as module
+      /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/src/node_modules doesn't exist or is not a directory
+      looking for modules in /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules
+        single file module
+          using description file: /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/package.json (relative path: ./node_modules/axios)
+            no extension
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios is not a file
+            .js
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios.js doesn't exist
+            .jsx
+              Field 'browser' doesn't contain a valid alias configuration
+              /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios.jsx doesn't exist
+        existing directory /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios
+          using description file: /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/package.json (relative path: ./node_modules/axios)
+            using description file: /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/package.json (relative path: ./node_modules/axios)
+              no extension
+                Field 'browser' doesn't contain a valid alias configuration
+                /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios is not a file
+              .js
+                Field 'browser' doesn't contain a valid alias configuration
+                /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios.js doesn't exist
+              .jsx
+                Field 'browser' doesn't contain a valid alias configuration
+                /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios.jsx doesn't exist
+              as directory
+                existing directory /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios
+                  using description file: /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/package.json (relative path: ./node_modules/axios)
+                    using path: /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios/index
+                      using description file: /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/package.json (relative path: ./node_modules/axios/index)
+                        no extension
+                          Field 'browser' doesn't contain a valid alias configuration
+                          /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios/index doesn't exist
+                        .js
+                          Field 'browser' doesn't contain a valid alias configuration
+                          /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios/index.js doesn't exist
+                        .jsx
+                          Field 'browser' doesn't contain a valid alias configuration
+                          /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/ticketing_frontend/node_modules/axios/index.jsx doesn't exist
+      /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/ticketing_frontend_workspace/node_modules doesn't exist or is not a directory
+      /home/kavia/workspace/code-generation/reactfastissuetracker-32469-1a99996f/node_modules doesn't exist or is not a directory
+      /home/kavia/workspace/code-generation/node_modules doesn't exist or is not a directory
+      /home/kavia/workspace/node_modules doesn't exist or is not a directory
+      /home/kavia/node_modules doesn't exist or is not a directory
+      /home/node_modules doesn't exist or is not a directory
+      /node_modules doesn't exist or is not a directory
+ @ ./src/TicketForm.js 2:0-37 29:12-24
+ @ ./src/App.js 3:0-38 75:41-51
+ @ ./src/index.js 5:0-24 11:32-35
+
+webpack 5.99.9 compiled with 1 error in 34 ms
+assets by status 1.98 KiB [cached] 1 asset
+assets by path *.js 1.7 MiB
+  asset bundle.js 1.56 MiB [emitted] (name: main)
+  asset main.06f33c9481e757f104e6.hot-update.js 145 KiB [emitted] [immutable] [hmr] (name: main)
+asset main.06f33c9481e757f104e6.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.7 MiB = bundle.js 1.56 MiB main.06f33c9481e757f104e6.hot-update.js 145 KiB
+cached modules 1.28 MiB [cached] 45 modules
+runtime modules 27.5 KiB 14 modules
+orphan modules 681 bytes [orphan] 1 module
+javascript modules 89.1 KiB
+  modules by path ./node_modules/axios/lib/helpers/*.js 23.3 KiB 18 modules
+  modules by path ./node_modules/axios/lib/core/*.js 23.9 KiB 9 modules
+  modules by path ./node_modules/axios/lib/platform/ 2.19 KiB 6 modules
+  modules by path ./node_modules/axios/lib/cancel/*.js 3.24 KiB 3 modules
+  modules by path ./node_modules/axios/lib/*.js 19.6 KiB 2 modules
+  modules by path ./node_modules/axios/lib/defaults/*.js 4.41 KiB 2 modules
+  modules by path ./node_modules/axios/lib/adapters/*.js 10.5 KiB 2 modules
+  ./src/api.js 1.95 KiB [code generated]
+  ./node_modules/axios/lib/env/data.js 31 bytes [built] [code generated]
+webpack 5.99.9 compiled successfully in 186 ms
+Injecting EditorRootWrapper import: ../.ve/EditorRootWrapper
+assets by path *.js 1.56 MiB
+  asset bundle.js 1.56 MiB [emitted] (name: main)
+  asset main.fe8ef48c466cbdaebdd1.hot-update.js 854 bytes [emitted] [immutable] [hmr] (name: main)
+asset index.html 1.98 KiB [emitted]
+asset main.fe8ef48c466cbdaebdd1.hot-update.json 28 bytes [emitted] [immutable] [hmr]
+Entrypoint main 1.56 MiB = bundle.js 1.56 MiB main.fe8ef48c466cbdaebdd1.hot-update.js 854 bytes
+cached modules 1.34 MiB [cached] 81 modules
+runtime modules 27.5 KiB 14 modules
+javascript modules 31.8 KiB
+  modules by path ./src/*.js 19.6 KiB
+    ./src/index.js 530 bytes [built]
+    ./src/App.js 3.42 KiB [built]
+    ./src/TicketForm.js 2.77 KiB [built]
+    ./src/TicketList.js 3.58 KiB [built]
+    ./src/AdminDashboard.js 7.39 KiB [built]
+    ./src/api.js 1.95 KiB [built]
+  modules by path ./.ve/ 12.2 KiB
+    ./.ve/EditorRootWrapper.js 2.68 KiB [built]
+    ./.ve/EditorOverlay.jsx 1.58 KiB [built]
+    ./.ve/SidePanel.js 7.93 KiB [built]
+webpack 5.99.9 compiled successfully in 231 ms
